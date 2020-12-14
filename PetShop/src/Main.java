@@ -1,6 +1,72 @@
+import components.*;
+
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        Address address = new Address("San Francisco", "North Point Street E204A", 900);
+        PetShop petStore = new PetShop("YAP Stores", address);
+
+        while (true) {
+
+            System.out.println("1. Add the animal to the register.");
+            System.out.println("2. Remove the animal from the register.");
+            System.out.println("3. Get a list of all the animals.");
+            System.out.println("4. Sell the selected animal to the customer of the store.");
+            System.out.println("5. Print sales amount for \"day\".");
+            System.out.println("6. Save the registry to the repository.");
+            System.out.println("7. Get the register from the repository.");
+            System.out.println("8. Exit the program.");
+            System.out.println();
+            System.out.print("Select an action (1-8): ");
+
+            String choice = scanner.next();
+
+            if (choice.equals("1")) {
+
+                System.out.print("Select the type of animal (Bird/Mammal): ");
+                String animalType = (scanner.next()).toLowerCase();
+
+                if (animalType.equals("bird") || animalType.equals("mammal")) {
+
+                    System.out.print("Enter the name of the animal: ");
+                    String name = scanner.next();
+                    System.out.print("Enter the age of the animal: ");
+                    int age = scanner.nextInt();
+                    System.out.print("Enter the breed of animal: ");
+                    String breed = scanner.next();
+                    System.out.print("Enter the animal's ration: ");
+                    String ration = scanner.next();
+                    System.out.print("Enter the animal's favorite yummy: ");
+                    String yummy = scanner.next();
+                    System.out.print("Enter the price of the animal: ");
+                    int price = scanner.nextInt();
+
+                    if (animalType.equals("bird")) {
+                        Animal bird = new Bird(name, age, breed, ration, yummy, price);
+                        petStore.addToRegister(bird);
+                    } else {
+                        Animal mammal = new Mammal(name, age, breed, ration, yummy, price);
+                        petStore.addToRegister(mammal);
+                    }
+
+                } else {
+                    System.out.println("This type of animal doesn't exist.");
+                }
+
+            } else if (choice.equals("2")) {
+
+            } else if (choice.equals("3")) {
+                petStore.printRegister();
+            }
+
+            System.out.println();
+
+        }
 
     }
 

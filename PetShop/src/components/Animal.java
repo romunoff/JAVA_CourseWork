@@ -2,13 +2,13 @@ package components;
 
 public abstract class Animal {
 
-    private AnimalType animalType;
-    private String name;
-    private int age;
-    private String breed;
-    private String ration;
-    private String yummy;
-    private int price;
+    private final AnimalType animalType;
+    private final String name;
+    private final int age;
+    private final String breed;
+    private final String ration;
+    private final String yummy;
+    private final int price;
 
     public Animal(AnimalType animalType, String name, int age, String breed, String ration, String yummy, int price) {
         this.animalType = animalType;
@@ -18,6 +18,12 @@ public abstract class Animal {
         this.ration = ration;
         this.yummy = yummy;
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "[" + name + "] -> animal type [" + animalType.getType() + "]; breed [" + breed + "]. " +
+                "Should eat [" + ration + "]. Favorite food is [" + yummy + "]. Price -> [" + price + "].";
     }
 
 }
