@@ -60,9 +60,49 @@ public class Main {
 
             } else if (choice.equals("2")) {
 
+                System.out.print("Enter the index of the animal in the list that you want to remove: ");
+                int animalIndex = scanner.nextInt();
+
+                if (petStore.removeFromRegister(animalIndex)) {
+                    System.out.println("The animal has been successfully removed.");
+                } else {
+                    System.out.println("The animal wasn't found.");
+                }
+
             } else if (choice.equals("3")) {
                 petStore.printRegister();
+            } else if (choice.equals("4")) {
+
+                System.out.print("Enter customer first name: ");
+                String firstName = scanner.next();
+                System.out.print("Enter customer last name: ");
+                String lastName = scanner.next();
+                System.out.print("Enter customer birthday year: ");
+                int birthdayYear = scanner.nextInt();
+                System.out.print("Enter customer passport: ");
+                String passport = scanner.next();
+
+                Customer customer = new Customer(firstName, lastName, birthdayYear, passport);
+
+                System.out.print("Enter the index of the animal in the list that the customer wants to buy: ");
+                int animalIndex = scanner.nextInt();
+
+                if (petStore.sellAnimal(customer, animalIndex)) {
+                    System.out.println("The animal has been successfully sold.");
+                } else {
+                    System.out.println("The animal wasn't found.");
+                }
+
+            } else if (choice.equals("5")) {
+                petStore.printSales();
+            } else if (choice.equals("6")) {
+
+            } else if (choice.equals("7")) {
+
+            } else {
+                System.out.println("Enter a correct data.");
             }
+
 
             System.out.println();
 
