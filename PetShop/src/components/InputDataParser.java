@@ -5,9 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataParser {
+public class InputDataParser {
 
-    public static List<Animal> animalParser(String string) {
+    public static List<Animal> registerParser(String string) {
 
         List<Animal> list = new ArrayList<>();
         String[] rows = StringUtils.split(string, System.lineSeparator());

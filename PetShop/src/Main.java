@@ -103,12 +103,15 @@ public class Main {
 
             } else if (choice.equals("6")) {
 
+                String filePath = ".\\src\\files\\Persistence Storage.csv";
+                WriteFile.writeFile(filePath, OutputDataParser.registerParser(petStore.getRegister()));
+
             } else if (choice.equals("7")) {
 
                 String filePath = ".\\src\\files\\Persistence Storage.csv";
                 String content = ReadFile.readFile(filePath);
 
-                petStore.setRegister(DataParser.animalParser(content));
+                petStore.setRegister(InputDataParser.registerParser(content));
 
             } else if (choice.equals("8")) {
                 return;

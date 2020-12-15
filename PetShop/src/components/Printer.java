@@ -12,7 +12,7 @@ public class Printer {
             for (int i = 0; i < register.size(); i++) {
                 System.out.println((i + 1) + " : [" + register.get(i).getName() + "] -> animal type [" + register.get(i).getAnimalType().getType() +
                         "]; breed [" + register.get(i).getBreed() + "]. Should eat [" + register.get(i).getRation() + "]. Favorite food is [" +
-                        register.get(i).getYummy() + "]. Price -> [" + register.get(i).getPrice() + "].");
+                        register.get(i).getYummy() + "]. Price -> " + register.get(i).getPrice() + ".");
             }
         }
     }
