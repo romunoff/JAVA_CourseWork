@@ -1,10 +1,11 @@
 import components.*;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -31,7 +32,8 @@ public class Main {
                 System.out.print("Select the type of animal (Bird/Mammal): ");
                 String animalType = (scanner.next()).toLowerCase();
 
-                if (animalType.equals("bird") || animalType.equals("mammal")) {
+                if (animalType.equals((AnimalType.BIRD.getType()).toLowerCase()) ||
+                        animalType.equals((AnimalType.MAMMAL.getType()).toLowerCase())) {
 
                     System.out.print("Enter the name of the animal: ");
                     String name = scanner.next();
@@ -46,7 +48,7 @@ public class Main {
                     System.out.print("Enter the price of the animal: ");
                     int price = scanner.nextInt();
 
-                    if (animalType.equals("bird")) {
+                    if (animalType.equals((AnimalType.BIRD.getType()).toLowerCase())) {
                         Animal bird = new Bird(name, age, breed, ration, yummy, price);
                         petStore.addToRegister(bird);
                     } else {
@@ -70,7 +72,9 @@ public class Main {
                 }
 
             } else if (choice.equals("3")) {
-                petStore.printRegister();
+
+                Printer.printRegister(petStore.getRegister());
+
             } else if (choice.equals("4")) {
 
                 System.out.print("Enter customer first name: ");
@@ -94,11 +98,20 @@ public class Main {
                 }
 
             } else if (choice.equals("5")) {
-                petStore.printSales();
+
+                Printer.printSales(petStore.getSales());
+
             } else if (choice.equals("6")) {
 
             } else if (choice.equals("7")) {
 
+                String filePath = ".\\src\\files\\Persistence Storage.csv";
+                String content = ReadFile.readFile(filePath);
+
+                petStore.setRegister(DataParser.animalParser(content));
+
+            } else if (choice.equals("8")) {
+                return;
             } else {
                 System.out.println("Enter a correct data.");
             }

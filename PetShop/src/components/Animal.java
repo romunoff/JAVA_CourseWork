@@ -20,8 +20,8 @@ public abstract class Animal {
         this.price = price;
     }
 
-    public String getAnimalType() {
-        return animalType.getType();
+    public AnimalType getAnimalType() {
+        return animalType;
     }
 
     public String getName() {
@@ -46,12 +46,6 @@ public abstract class Animal {
 
     public int getPrice() {
         return price;
-    }
-
-    @Override
-    public String toString() {
-        return "[" + name + "] -> animal type [" + animalType.getType() + "]; breed [" + breed + "]. " +
-                "Should eat [" + ration + "]. Favorite food is [" + yummy + "]. Price -> [" + price + "].";
     }
 
 }
