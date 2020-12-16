@@ -7,27 +7,27 @@ import java.util.List;
 
 public class InputDataParser {
 
-    public static List<Animal> registerParser(String string) {
+    public static List<Animal> registerParser(String string, String separator) {
 
         List<Animal> list = new ArrayList<>();
         String[] rows = StringUtils.split(string, System.lineSeparator());
 
         for (int i = 1; i < rows.length; i++) {
 
-            String[] rowElements = StringUtils.split(rows[i], ",");
+            String[] rowElements = StringUtils.split(rows[i], separator);
 
-            String animalType = (rowElements[0]).toLowerCase();
-            String name = rowElements[1];
-            int age = Integer.parseInt(rowElements[2]);
+            String animalType = rowElements[0];
+            String name = rowElements[1].toLowerCase();
+            String age = rowElements[2];
             String breed = rowElements[3];
             String ration = rowElements[4];
             String yummy = rowElements[5];
-            int price = Integer.parseInt(rowElements[6]);
+            String price = rowElements[6];
 
-            if (animalType.equals((AnimalType.BIRD.getType()).toLowerCase())) {
+            if (Integer.parseInt(animalType) == AnimalType.BIRD.getType()) {
                 Animal bird = new Bird(name, age, breed, ration, yummy, price);
                 list.add(bird);
-            } else if (animalType.equals((AnimalType.MAMMAL.getType()).toLowerCase())) {
+            } else if (Integer.parseInt(animalType) == AnimalType.MAMMAL.getType()) {
                 Animal mammal = new Mammal(name, age, breed, ration, yummy, price);
                 list.add(mammal);
             }

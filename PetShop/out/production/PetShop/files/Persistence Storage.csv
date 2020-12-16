@@ -1,7 +1,9 @@
 AnimalType,Name,Age,Breed,Ration,Yummy,Price
-Bird,Jet,7,Australian King Parrot,Fruits,Raisins,490
-Bird,Rio,2,Border Canary,Vegetables,Peanuts in chocolate,85
-Mammal,Smokey,3,Bengal Cat,Offal,Chicken liver pate,2400
-Bird,Birdie,5,Budgerigars,Corn,Shortbread,25
-Mammal,Gizmo,12,Manx Cat,Cat food,Marshmallow,1150
-Bird,Woodstock,11,Caique,Corn,Chocolate,1850
+1,jet,Seven,Australian King Parrot,Fruits,Raisins,Four Nine Zero
+1,rio,Two,Border Canary,Vegetables,Peanuts in chocolate,Eight Five
+2,smokey,Three,Bengal Cat,Offal,Chicken liver pate,Two Four Zero Zero
+1,birdie,Five,Budgerigars,Corn,Shortbread,Two Five
+2,sassy,One,LaPerm Cat,Meat,Marmalade,One One Zero Zero
+2,gizmo,One Two,Manx Cat,Cat food,Marshmallow,One One Five Zero
+1,woodstock,One One,Caique,Corn,Chocolate,One Eight Five Zero
+2,dora,Seven Nine Eight,Lolsa,vmvmvmvvmvm,kdfkkfdkjfgjkgf,One Two Two Five

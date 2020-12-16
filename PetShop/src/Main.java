@@ -29,16 +29,16 @@ public class Main {
 
             if (choice.equals("1")) {
 
-                System.out.print("Select the type of animal (Bird/Mammal): ");
-                String animalType = (scanner.next()).toLowerCase();
+                System.out.print("Select the type of animal (1 - Bird, 2 - Mammal): ");
+                String animalType = scanner.next();
 
-                if (animalType.equals((AnimalType.BIRD.getType()).toLowerCase()) ||
-                        animalType.equals((AnimalType.MAMMAL.getType()).toLowerCase())) {
+                if (Integer.parseInt(animalType) == AnimalType.BIRD.getType() ||
+                        Integer.parseInt(animalType) == AnimalType.MAMMAL.getType()) {
 
                     System.out.print("Enter the name of the animal: ");
-                    String name = scanner.next();
+                    String name = scanner.next().toLowerCase();
                     System.out.print("Enter the age of the animal: ");
-                    int age = scanner.nextInt();
+                    String age = StringHandler.changeNumberFormat(scanner.nextInt());
                     System.out.print("Enter the breed of animal: ");
                     String breed = scanner.next();
                     System.out.print("Enter the animal's ration: ");
@@ -46,9 +46,9 @@ public class Main {
                     System.out.print("Enter the animal's favorite yummy: ");
                     String yummy = scanner.next();
                     System.out.print("Enter the price of the animal: ");
-                    int price = scanner.nextInt();
+                    String price = StringHandler.changeNumberFormat(scanner.nextInt());
 
-                    if (animalType.equals((AnimalType.BIRD.getType()).toLowerCase())) {
+                    if (Integer.parseInt(animalType) == AnimalType.BIRD.getType()) {
                         Animal bird = new Bird(name, age, breed, ration, yummy, price);
                         petStore.addToRegister(bird);
                     } else {
@@ -111,14 +111,13 @@ public class Main {
                 String filePath = ".\\src\\files\\Persistence Storage.csv";
                 String content = ReadFile.readFile(filePath);
 
-                petStore.setRegister(InputDataParser.registerParser(content));
+                petStore.setRegister(InputDataParser.registerParser(content, ","));
 
             } else if (choice.equals("8")) {
                 return;
             } else {
                 System.out.println("Enter a correct data.");
             }
-
 
             System.out.println();
 

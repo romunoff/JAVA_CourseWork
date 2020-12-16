@@ -2,17 +2,16 @@ package components;
 
 public enum AnimalType {
 
-    BIRD("Bird"),
-    MAMMAL("Mammal");
+    BIRD(1),
+    MAMMAL(2);
 
-    private final String type;
+    private final int type;
 
-    AnimalType(String type) {
+    AnimalType(int type) {
         this.type = type;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
-
 }
