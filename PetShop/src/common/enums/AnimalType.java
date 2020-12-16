@@ -1,4 +1,4 @@
-package components;
+package common.enums;
 
 public enum AnimalType {
 

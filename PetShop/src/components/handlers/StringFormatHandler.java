@@ -1,6 +1,6 @@
-package components;
+package components.handlers;
 
-public class StringHandler {
+public class StringFormatHandler {
 
     public static String changeNumberFormat(int number) {
         String[] format = {"Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"};

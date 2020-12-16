@@ -1,11 +1,15 @@
-package components;
+package components.handlers;
 
+import common.enums.AnimalType;
+import components.objects.Animal;
+import components.objects.Bird;
+import components.objects.Mammal;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class InputDataParser {
+public class InputDataHandler {
 
     public static List<Animal> registerParser(String string, String separator) {
 

@@ -1,4 +1,4 @@
-package components;
+package components.writers;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

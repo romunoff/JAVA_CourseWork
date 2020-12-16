@@ -1,4 +1,6 @@
-package components;
+package components.objects;
+
+import common.enums.AnimalType;
 
 public abstract class Animal {
 

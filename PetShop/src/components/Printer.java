@@ -1,5 +1,8 @@
 package components;
 
+import components.objects.Animal;
+import components.objects.Customer;
+
 import java.util.List;
 import java.util.Map;
 
