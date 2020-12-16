@@ -1,10 +1,18 @@
+import common.enums.AnimalType;
 import components.*;
+import components.handlers.InputDataHandler;
+import components.handlers.OutputDataHandler;
+import components.handlers.StringFormatHandler;
+import components.objects.*;
+import components.readers.ReadFile;
+import components.writers.WriteFile;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -28,15 +36,16 @@ public class Main {
 
             if (choice.equals("1")) {
 
-                System.out.print("Select the type of animal (Bird/Mammal): ");
-                String animalType = (scanner.next()).toLowerCase();
+                System.out.print("Select the type of animal (1 - Bird, 2 - Mammal): ");
+                String animalType = scanner.next();
 
-                if (animalType.equals("bird") || animalType.equals("mammal")) {
+                if (Integer.parseInt(animalType) == AnimalType.BIRD.getType() ||
+                        Integer.parseInt(animalType) == AnimalType.MAMMAL.getType()) {
 
                     System.out.print("Enter the name of the animal: ");
-                    String name = scanner.next();
+                    String name = scanner.next().toLowerCase();
                     System.out.print("Enter the age of the animal: ");
-                    int age = scanner.nextInt();
+                    String age = StringFormatHandler.changeNumberFormat(scanner.nextInt());
                     System.out.print("Enter the breed of animal: ");
                     String breed = scanner.next();
                     System.out.print("Enter the animal's ration: ");
@@ -44,9 +53,9 @@ public class Main {
                     System.out.print("Enter the animal's favorite yummy: ");
                     String yummy = scanner.next();
                     System.out.print("Enter the price of the animal: ");
-                    int price = scanner.nextInt();
+                    String price = StringFormatHandler.changeNumberFormat(scanner.nextInt());
 
-                    if (animalType.equals("bird")) {
+                    if (Integer.parseInt(animalType) == AnimalType.BIRD.getType()) {
                         Animal bird = new Bird(name, age, breed, ration, yummy, price);
                         petStore.addToRegister(bird);
                     } else {
@@ -70,7 +79,9 @@ public class Main {
                 }
 
             } else if (choice.equals("3")) {
-                petStore.printRegister();
+
+                Printer.printRegister(petStore.getRegister());
+
             } else if (choice.equals("4")) {
 
                 System.out.print("Enter customer first name: ");
@@ -94,15 +105,26 @@ public class Main {
                 }
 
             } else if (choice.equals("5")) {
-                petStore.printSales();
+
+                Printer.printSales(petStore.getSales());
+
             } else if (choice.equals("6")) {
+
+                String filePath = ".\\src\\files\\Persistence Storage.csv";
+                WriteFile.writeFile(filePath, OutputDataHandler.registerParser(petStore.getRegister(), ","));
 
             } else if (choice.equals("7")) {
 
+                String filePath = ".\\src\\files\\Persistence Storage.csv";
+                String content = ReadFile.readFile(filePath);
+
+                petStore.setRegister(InputDataHandler.registerParser(content, ","));
+
+            } else if (choice.equals("8")) {
+                return;
             } else {
                 System.out.println("Enter a correct data.");
             }
-
 
             System.out.println();
 

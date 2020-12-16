@@ -1,16 +1,18 @@
-package components;
+package components.objects;
+
+import common.enums.AnimalType;
 
 public abstract class Animal {
 
     private final AnimalType animalType;
     private final String name;
-    private final int age;
+    private final String age;
     private final String breed;
     private final String ration;
     private final String yummy;
-    private final int price;
+    private final String price;
 
-    public Animal(AnimalType animalType, String name, int age, String breed, String ration, String yummy, int price) {
+    public Animal(AnimalType animalType, String name, String age, String breed, String ration, String yummy, String price) {
         this.animalType = animalType;
         this.name = name;
         this.age = age;
@@ -20,15 +22,15 @@ public abstract class Animal {
         this.price = price;
     }
 
-    public String getAnimalType() {
-        return animalType.getType();
+    public AnimalType getAnimalType() {
+        return animalType;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
@@ -44,14 +46,8 @@ public abstract class Animal {
         return yummy;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
-    }
-
-    @Override
-    public String toString() {
-        return "[" + name + "] -> animal type [" + animalType.getType() + "]; breed [" + breed + "]. " +
-                "Should eat [" + ration + "]. Favorite food is [" + yummy + "]. Price -> [" + price + "].";
     }
 
 }
